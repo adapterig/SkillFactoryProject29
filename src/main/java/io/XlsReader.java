@@ -10,7 +10,6 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
@@ -24,20 +23,14 @@ public class XlsReader {
     }
 
     public static List<University> readXlsUniversities(String filePath) {
-
         List<University> universities = new ArrayList<>();
-
         try {
-
             logger.log(Level.INFO, "Excel reading started");
-
             FileInputStream inputStream = new FileInputStream(filePath);
             XSSFWorkbook workbook = new XSSFWorkbook(inputStream);
             XSSFSheet sheet = workbook.getSheet("Университеты");
-
             Iterator<Row> rows = sheet.iterator();
             rows.next();
-
             while (rows.hasNext()) {
                 Row currentRow = rows.next();
                 University university = new University();

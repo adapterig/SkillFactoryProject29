@@ -1,10 +1,8 @@
 package model;
 
 import enums.StudyProfile;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+
+import javax.xml.bind.annotation.*;
 
 @XmlRootElement(name = "Statistics")
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -13,11 +11,11 @@ public class Statistics {
     private StudyProfile profile;
     @XmlElement(name = "avgExamScore")
     private float avgExamScore;
-    @XmlElement(name = "numberOfStudents")
+    @XmlTransient
     private int numberOfStudents;
-    @XmlElement(name = "numberOfUniversities")
+    @XmlTransient
     private int numberOfUniversities;
-    @XmlElement(name = "universityNames")
+    @XmlTransient
     private String universityNames;
 
     public StudyProfile getProfile() {
