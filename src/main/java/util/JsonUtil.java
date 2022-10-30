@@ -3,6 +3,7 @@ package util;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import model.Statistics;
 import model.Student;
 import model.University;
 
@@ -36,6 +37,9 @@ public class JsonUtil {
     public static String universityListToJson(List<University> universities) {
         return new GsonBuilder().setPrettyPrinting().create().toJson(universities);
     }
+    public static String statisticsListToJson(List<Statistics> statisticsList) {
+        return new GsonBuilder().setPrettyPrinting().create().toJson(statisticsList);
+    }
 
     public static List<Student> jsonToStudentList(String json) {
         return new Gson().fromJson(json, new TypeToken<List<Student>>() {}.getType());
@@ -44,4 +48,5 @@ public class JsonUtil {
     public static List<University> jsonToUniversityList(String json) {
         return new Gson().fromJson(json, new TypeToken<List<University>>() {}.getType());
     }
+
 }
