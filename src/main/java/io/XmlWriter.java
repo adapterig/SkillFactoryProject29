@@ -18,13 +18,13 @@ public class XmlWriter {
     public static void writeXml(FullInfo fullInfo) throws JAXBException {
         JAXBContext jaxbContext = JAXBContext.newInstance(FullInfo.class);
         Marshaller marshaller = jaxbContext.createMarshaller();
-
+        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
         try{
             Files.createDirectory(Paths.get("xmlReqs"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        File xmlFile = new File("xmlReqs/req.xml");
+        File xmlFile = new File("xmlReqs/req" + new Date().getTime() + ".xml");
         marshaller.marshal(fullInfo, xmlFile);
 
     }
