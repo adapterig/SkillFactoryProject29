@@ -1,6 +1,6 @@
 package model;
 
-import jakarta.xml.bind.annotation.*;
+import javax.xml.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;

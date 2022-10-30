@@ -28,8 +28,7 @@ public class Boot {
     public static void main(String[] args) throws IOException {
 
         try {
-            LogManager.getLogManager().readConfiguration(
-                    Boot.class.getResourceAsStream("/logging.properties"));
+            LogManager.getLogManager().readConfiguration(Boot.class.getResourceAsStream("logging.properties"));
         } catch (IOException e) {
             System.err.println("Could not setup logger configuration: " + e.toString());
         }
