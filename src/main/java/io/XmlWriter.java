@@ -19,7 +19,7 @@ public class XmlWriter {
     private XmlWriter() {
     }
 
-    public static void writeXml(FullInfo fullInfo) throws JAXBException {
+    public static void writeXml(FullInfo fullInfo)  {
         logger.log(Level.INFO, "XML marshalling started");
         try {
             JAXBContext jaxbContext = JAXBContext.newInstance(FullInfo.class);

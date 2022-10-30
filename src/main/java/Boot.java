@@ -2,8 +2,11 @@ import comparator.StudentComparator;
 import comparator.UniversityComparator;
 import enums.StudentComparatorType;
 import enums.UniversityComparatorType;
+import io.JsonWriter;
 import io.XlsReader;
 import io.XlsWriter;
+import io.XmlWriter;
+import model.FullInfo;
 import model.Statistics;
 import model.Student;
 import model.University;
@@ -11,6 +14,7 @@ import util.ComparatorUtil;
 import util.StatisticsUtil;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
@@ -46,6 +50,15 @@ public class Boot {
 
         List<Statistics> statisticsList = StatisticsUtil.createStatistics(students, universities);
         XlsWriter.writeXlsStatistics(statisticsList, "statistics.xlsx");
+
+        FullInfo fullInfo = new FullInfo();
+        fullInfo.setStudentList(students);
+        fullInfo.setUniversityList(universities);
+        fullInfo.setStatisticsList(statisticsList);
+        fullInfo.setProcessDate(new Date());
+
+        JsonWriter.writeJson(fullInfo);
+        XmlWriter.writeXml(fullInfo);
 
         logger.log(INFO, "Application finished");
     }
